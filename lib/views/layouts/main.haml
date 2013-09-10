@@ -1,0 +1,27 @@
+%html
+  %head
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
+    %link{rel: 'stylesheet', media: 'screen, projection', type: 'text/css', href: 'styles/bootstrap.min.css'}
+    %link{rel: 'stylesheet', media: 'screen, projection', type: 'text/css', href: 'styles/custom.css'}
+    %script{src: 'http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'}
+    %script{src: 'http://code.jquery.com/jquery-2.0.3.min.js'}
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %a.navbar-brand{href: '#'}
+            Redis Monitor
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{href: '/info'}
+                Info
+            %li
+              %a{href: '#'}
+                About
+            %li
+              %a{href: '#'}
+                Contact
+
+    .container
+      = yield
