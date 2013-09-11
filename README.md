@@ -1,7 +1,5 @@
 # RedisMonitor
 
-TODO: Write a gem description
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -18,7 +16,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ redis_monitor --http-port http_port --host host --port port
+
+Then browse http://localhost:http_port
+
+For more information about the parameters:
+
+    $ redis_monitor --help
 
 ## Contributing
 
