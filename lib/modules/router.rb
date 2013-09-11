@@ -7,7 +7,7 @@ module RedisMonitor
 
     def self.included(server)
       server.get('/'){ redirect '/info' }
-      server.get('/info'){ InfoController.new(context: self).index }
+      server.get('/info'){ InfoController.new(context: self).execute(:index) }
     end
   end
 end

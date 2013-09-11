@@ -1,0 +1,1 @@
+require 'errors/redis_not_available'

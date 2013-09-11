@@ -1,3 +1,8 @@
 body {
   padding-top: 60px;
 }
+
+.message_centered {
+  text-align: center;
+  padding-top: 20%;
+}
