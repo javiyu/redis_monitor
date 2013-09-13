@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = %w(javiyu7@gmail.com)
   spec.description   = %q{Get general information of a running redis instance}
   spec.summary       = %q{Get general information of a running redis instance}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/javiyu/redis_monitor'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
