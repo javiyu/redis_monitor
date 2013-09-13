@@ -25,7 +25,7 @@ module RedisMonitor
     end
 
     def self.redis
-      redis = Redis.new(:host => @@host, :port => @@port)
+      redis = Redis.new(:host => host, :port => port)
       ensure_connected(redis)
       redis
     end

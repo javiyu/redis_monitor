@@ -7,6 +7,7 @@ module RedisMonitor
       attr_accessor :context, :params
 
       include RedisMonitor::Helpers::BaseHelper
+      include RedisMonitor::Helpers::LayoutsHelper
 
       def initialize(opts = {})
         @context = opts.delete(:context)

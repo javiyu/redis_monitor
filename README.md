@@ -31,3 +31,7 @@ For more information about the parameters:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+Please write meaningful test, ff you need to execute them:
+
+    $ rspec spec
