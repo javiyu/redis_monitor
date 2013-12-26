@@ -1,8 +1,14 @@
 require 'redis'
 require 'errors/errors'
+require 'modules/performance_stats'
+require 'forwardable'
 
 module RedisMonitor
   class Backend
+    extend SingleForwardable
+
+    def_delegators :redis, :get, :set, :del, :info, :keys, :dbsize
+
     def self.config(arguments)
       @@host = arguments[:redis_host]
       @@port = arguments[:redis_port]
@@ -16,22 +22,12 @@ module RedisMonitor
       @@port
     end
 
-    def self.ensure_connected(redis)
-      begin
-        redis.ping
-      rescue Redis::CannotConnectError => e
-        raise RedisMonitor::Errors::RedisNotAvailable
-      end
-    end
-
     def self.redis
-      redis = Redis.new(:host => host, :port => port)
-      ensure_connected(redis)
-      redis
+      @@redis ||= Redis.new(:host => host, :port => port)
     end
 
-    def self.info
-      redis.info
+    def self.performance_stats
+      PerformanceStats.new(self).results
     end
   end
 end

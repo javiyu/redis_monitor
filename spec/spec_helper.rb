@@ -13,6 +13,7 @@ end
 require 'modules/helpers'
 require 'modules/controllers'
 require 'modules/backend'
+require 'server/command_line_parser'
 
 include RedisMonitor
 include RedisMonitor::Controllers

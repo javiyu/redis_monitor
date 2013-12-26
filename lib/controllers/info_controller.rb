@@ -5,7 +5,7 @@ module RedisMonitor
       include RedisMonitor::Helpers::LayoutsHelper
 
       def index
-        haml 'info/info'.to_sym, layout: main_layout, locals: {info: Backend.info}
+        haml 'info/info'.to_sym, layout: main_layout, locals: {info: Backend.info, section: 'info'}
       end
     end
   end

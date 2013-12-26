@@ -4,20 +4,24 @@ describe Backend do
   before :each do
     Backend.stub(:host)
     Backend.stub(:port)
+    Redis.stub(:new){ double(:redis) }
   end
 
-  describe 'ensure_connected method' do
-    it 'should raise RedisNotAvailable if redis throws an exception' do
-      redis = double(:redis)
-      redis.stub(:ping){ raise Redis::CannotConnectError }
-      expect{ Backend.ensure_connected(redis) }.to raise_error RedisNotAvailable
+  describe 'redis' do
+    it 'create only one connection' do
+      Redis.should_receive(:new).once
+      Backend.redis
+      Backend.redis
     end
   end
 
-  describe 'redis method' do
-    it 'should call to ensure_connected' do
-      Backend.should_receive(:ensure_connected)
-      Backend.redis
+  describe 'performance_stats' do
+    before :each do
+      PerformanceStats.any_instance.stub(:results){ {} }
+    end
+
+    it 'should return a hash with the stats' do
+      Backend.performance_stats.should be_kind_of(Hash)
     end
   end
 end

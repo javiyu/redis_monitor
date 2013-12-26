@@ -16,7 +16,7 @@ describe InfoController do
       expect{ @controller.index }.not_to raise_error
     end
 
-    it 'should render info page' do
+    it 'should render info template' do
       @context.should_receive(:haml).with('info/info'.to_sym, anything)
       @controller.index
     end
