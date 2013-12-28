@@ -14,9 +14,9 @@ module RedisMonitor
         @params = opts
       end
 
-      def execute(action)
+      def execute(action, params = {})
         begin
-          send(action)
+          send(action, params)
         rescue RedisMonitor::Errors::RedisNotAvailable
           redis_not_available
         end

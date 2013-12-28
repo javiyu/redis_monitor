@@ -7,7 +7,7 @@ module RedisMonitor
   class Backend
     extend SingleForwardable
 
-    def_delegators :redis, :get, :set, :del, :info, :keys, :dbsize
+    def_delegators :redis, :get, :set, :del, :info, :keys, :dbsize, :monitor
 
     def self.config(arguments)
       @@host = arguments[:redis_host]
@@ -28,6 +28,10 @@ module RedisMonitor
 
     def self.performance_stats
       PerformanceStats.new(self).results
+    end
+
+    def self.search(key)
+      keys(key).map{|found| {key: found, value: get(found)} }
     end
   end
 end

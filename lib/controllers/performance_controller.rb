@@ -4,13 +4,15 @@ module RedisMonitor
     class PerformanceController < BaseController
       include RedisMonitor::Helpers::LayoutsHelper
 
-      def warning
-        haml 'performance/warning'.to_sym, layout: main_layout, locals: {section: 'performance'}
+      SECTION = 'performance'
+
+      def warning(params = {})
+        haml 'performance/warning'.to_sym, layout: main_layout, locals: {section: SECTION}
       end
 
-      def check
+      def check(params = {})
         stats = Backend.performance_stats
-        haml 'performance/check'.to_sym, layout: main_layout, locals: {stats: stats, section: 'performance'}
+        haml 'performance/check'.to_sym, layout: main_layout, locals: {stats: stats, section: SECTION}
       end
 
     end

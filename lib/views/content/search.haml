@@ -1,0 +1,17 @@
+= haml 'content/_search_form'.to_sym, locals: {search_term: params[:key]}
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        Key
+      %th
+        Value
+
+  %tbody
+    - results.each do |result|
+      %tr
+        %td
+          = result[:key]
+        %td
+          = result[:value]
