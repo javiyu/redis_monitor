@@ -32,6 +32,6 @@ For more information about the parameters:
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-Please write meaningful test, ff you need to execute them:
+Please write meaningful test, if you need to execute them:
 
     $ rspec spec
