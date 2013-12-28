@@ -14,6 +14,17 @@ module RedisMonitor
         results = Backend.search(params[:key])
         haml 'content/search'.to_sym, layout: main_layout, locals: {results: results, section: SECTION}
       end
+
+      def delete(params = {})
+        Backend.del(params[:key])
+
+        if http_referer
+          context.redirect http_referer
+        else
+          redirect '/content/search'
+        end
+      end
+
     end
   end
 end

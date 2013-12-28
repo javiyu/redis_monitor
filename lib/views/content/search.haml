@@ -7,6 +7,8 @@
         Key
       %th
         Value
+      %th
+        Actions
 
   %tbody
     - results.each do |result|
@@ -15,3 +17,8 @@
           = result[:key]
         %td
           = result[:value]
+        %td
+          %form{action: '/content/delete', method: 'post'}
+            %input{type: 'hidden', name: 'key', value: result[:key]}
+            %button.btn.btn-danger
+              Delete

@@ -20,4 +20,22 @@ describe ContentController do
       @controller.search
     end
   end
+
+  describe 'delete action' do
+    before :each do
+      Backend.stub(:del)
+    end
+
+    it 'should redirect to the referer if exists' do
+      @controller.stub(:http_referer){ '/referer' }
+      @context.should_receive(:redirect).with('/referer')
+      @controller.delete
+    end
+
+    it 'should redirect to search page if referer does not exists' do
+      @controller.stub(:http_referer){ nil }
+      @context.should_receive(:redirect).with('/content/search')
+      @controller.delete
+    end
+  end
 end

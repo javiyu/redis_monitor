@@ -4,6 +4,10 @@ module RedisMonitor
       def haml(*arguments)
         context.haml(*arguments)
       end
+
+      def redirect(*arguments)
+        context.redirect(*arguments)
+      end
     end
   end
 end

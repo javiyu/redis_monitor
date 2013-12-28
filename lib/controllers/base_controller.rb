@@ -26,6 +26,10 @@ module RedisMonitor
         haml 'errors/redis_not_available'.to_sym, layout: main_layout,
                      locals: {host: Backend.host, port: Backend.port}
       end
+
+      def http_referer
+        context.env['HTTP_REFERER']
+      end
     end
   end
 end
