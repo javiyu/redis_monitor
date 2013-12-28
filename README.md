@@ -1,4 +1,5 @@
 # RedisMonitor
+[![Build Status](https://travis-ci.org/javiyu/redis_monitor.png?branch=master)](https://travis-ci.org/javiyu/redis_monitor)
 
 ## Installation
 
