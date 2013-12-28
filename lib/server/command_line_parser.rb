@@ -3,7 +3,7 @@ require 'optparse'
 module RedisMonitor
   class CommandLineParser
     DEFAULTS = {
-      http_server: 'thin',
+      http_server: 'webrick',
       http_port: 6369,
       redis_host: 'localhost',
       redis_port: 6379,

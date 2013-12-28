@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = %w(lib)
 
   spec.add_runtime_dependency 'sinatra', '~> 1.4'
-  spec.add_runtime_dependency 'thin'
+  spec.add_runtime_dependency 'webrick'
   spec.add_runtime_dependency 'redis', '~> 3.0'
   spec.add_runtime_dependency 'haml', '~> 4.0'
 
