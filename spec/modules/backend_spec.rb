@@ -4,7 +4,7 @@ describe Backend do
   before :each do
     Backend.stub(:host)
     Backend.stub(:port)
-    Redis.stub(:new){ double(:redis) }
+    Redis.stub(:new){ double() }
   end
 
   describe 'redis' do
