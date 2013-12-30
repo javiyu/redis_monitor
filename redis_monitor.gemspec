@@ -22,6 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'webrick'
   spec.add_runtime_dependency 'redis', '~> 3.0'
   spec.add_runtime_dependency 'haml', '~> 4.0'
+  spec.add_runtime_dependency 'will_paginate', '~> 3.0'
+  spec.add_runtime_dependency 'will_paginate-bootstrap'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake'

@@ -11,8 +11,8 @@ module RedisMonitor
       end
 
       def search(params = {})
-        results = Backend.search(params[:key])
-        haml 'content/search'.to_sym, layout: main_layout, locals: {results: results, section: SECTION}
+        results = Backend.search(params[:key]).paginate(:page => params[:page], :per_page => 20)
+        haml 'content/search'.to_sym, layout: main_layout, locals: {results: results, section: SECTION, object: self}
       end
 
       def delete(params = {})

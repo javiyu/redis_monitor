@@ -1,5 +1,6 @@
 require 'helpers/base_helper'
 require 'helpers/layouts_helper'
+require 'helpers/pagination_helper'
 
 module RedisMonitor
   module Helpers

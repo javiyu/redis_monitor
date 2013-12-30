@@ -1,11 +1,15 @@
 require 'sinatra'
 require 'haml'
 require 'modules/router'
+require 'will_paginate/view_helpers/sinatra'
+require 'will_paginate-bootstrap'
 
 module RedisMonitor
   class Server < Sinatra::Base
     include RedisMonitor::Router
     include RedisMonitor::Helpers::LayoutsHelper
+    include WillPaginate::Sinatra::Helpers
+    include PaginationHelper
 
     set :public_folder, File.dirname(__FILE__) + '/../static'
     set :views, File.dirname(__FILE__) + '/../views'
