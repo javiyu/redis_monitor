@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe ContentController do
+  let(:search_results){ double(paginate: []) }
+
   before :each do
     @context = double(:context)
     @controller = ContentController.new(context: @context)
@@ -15,7 +17,7 @@ describe ContentController do
 
   describe 'search action' do
     it 'should render search template' do
-      Backend.stub(:search){ {} }
+      Backend.stub(:search){ search_results }
       @context.should_receive(:haml).with('content/search'.to_sym, anything)
       @controller.search
     end
