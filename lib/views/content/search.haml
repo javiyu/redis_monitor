@@ -7,8 +7,9 @@
         Key
       %th
         Value
-      %th
-        Actions
+      - if authorized_for?(:remove_content)
+        %th
+          Actions
 
   %tbody
     - results.each do |result|
@@ -17,10 +18,11 @@
           = result[:key]
         %td
           = result[:value]
-        %td
-          %form{action: '/content/delete', method: 'post'}
-            %input{type: 'hidden', name: 'key', value: result[:key]}
-            %button.btn.btn-danger
-              Delete
+        - if authorized_for?(:remove_content)
+          %td
+            %form{action: '/content/delete', method: 'post'}
+              %input{type: 'hidden', name: 'key', value: result[:key]}
+              %button.btn.btn-danger
+                Delete
 
 = bootstrap_paginate results

@@ -19,6 +19,8 @@ Or install it yourself as:
 
     $ redis_monitor --http-port http_port --host host --port port
 
+Flags --editable or --not-editable can be use to indicate if the user should be able to edit the database content.
+
 Then browse http://localhost:http_port
 
 For more information about the parameters:

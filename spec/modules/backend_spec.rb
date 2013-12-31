@@ -1,18 +1,12 @@
 require 'spec_helper'
 
 describe Backend do
+  let(:redis){ double(del: '') }
+
   before :each do
     Backend.stub(:host)
     Backend.stub(:port)
-    Redis.stub(:new){ double() }
-  end
-
-  describe 'redis' do
-    it 'create only one connection' do
-      Redis.should_receive(:new).once
-      Backend.redis
-      Backend.redis
-    end
+    Backend.stub(:redis){ redis }
   end
 
   describe 'performance_stats' do
@@ -41,6 +35,20 @@ describe Backend do
     it 'every entry should have key and value data' do
       Backend.search('*')[0][:key].should_not be_nil
       Backend.search('*')[0][:value].should_not be_nil
+    end
+  end
+
+  describe 'del' do
+    it 'should not delete content if not allowed' do
+      Authorization.stub(:authorized_for?).with(:remove_content){ false }
+      redis.should_receive(:del).never
+      Backend.del('key')
+    end
+
+    it 'should remove content if allowed' do
+      Authorization.stub(:authorized_for?).with(:remove_content){ true }
+      redis.should_receive(:del)
+      Backend.del('key')
     end
   end
 end

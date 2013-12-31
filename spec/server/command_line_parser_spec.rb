@@ -22,5 +22,14 @@ describe CommandLineParser do
       CommandLineParser.parse(args)[:redis_port].should eq(4444)
     end
 
+    it 'should read editable option' do
+      args = ['--editable']
+      CommandLineParser.parse(args)[:permissions][:remove_content].should eq(true)
+    end
+
+    it 'should read not-editable option' do
+      args = ['--not-editable']
+      CommandLineParser.parse(args)[:permissions][:remove_content].should eq(false)
+    end
   end
 end

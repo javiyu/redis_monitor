@@ -25,6 +25,14 @@ module RedisMonitor
         op.on('--port port',  'specify redis port (default is 6379)') do |val|
           arguments[:redis_port] = val.to_i
         end
+        op.on('--editable',  'the content will be editable (default is editable)') do |val|
+          arguments[:permissions] ||= {}
+          arguments[:permissions][:remove_content] = true
+        end
+        op.on('--not-editable',  'the content will be not editable (default is editable)') do |val|
+          arguments[:permissions] ||= {}
+          arguments[:permissions][:remove_content] = false
+        end
       end
       parser.parse!(argv)
 
