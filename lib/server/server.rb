@@ -1,9 +1,9 @@
 require 'sinatra'
 require 'haml'
 require 'modules/router'
+require 'modules/security/authorization'
 require 'will_paginate/view_helpers/sinatra'
 require 'will_paginate-bootstrap'
-require 'modules/authorization'
 
 module RedisMonitor
   class Server < Sinatra::Base

@@ -10,11 +10,13 @@ RSpec.configure do |config|
   config.order = 'random'
 end
 
+require 'sinatra'
 require 'modules/helpers'
 require 'modules/controllers'
 require 'modules/backend'
 require 'server/command_line_parser'
-require 'modules/authorization'
+require 'modules/security/authorization'
+require 'modules/security/authentication'
 
 include RedisMonitor
 include RedisMonitor::Controllers

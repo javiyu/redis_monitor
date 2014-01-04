@@ -19,10 +19,10 @@ module RedisMonitor
         op.on('--http-port port',  'specify http port (default is 6369)') do |val|
           arguments[:http_port] = val.to_i
         end
-        op.on('--host host',  'specify redis host (default is localhost)') do |val|
+        op.on('--host redis-host',  'specify redis host (default is localhost)') do |val|
           arguments[:redis_host] = val
         end
-        op.on('--port port',  'specify redis port (default is 6379)') do |val|
+        op.on('--port redis-port',  'specify redis port (default is 6379)') do |val|
           arguments[:redis_port] = val.to_i
         end
         op.on('--editable',  'the content will be editable (default is editable)') do |val|
@@ -32,6 +32,10 @@ module RedisMonitor
         op.on('--not-editable',  'the content will be not editable (default is editable)') do |val|
           arguments[:permissions] ||= {}
           arguments[:permissions][:remove_content] = false
+        end
+        op.on('--credentials credentials',  'access only with credentials (format user:password)') do |val|
+          user, password = val.to_s.split(':')
+          arguments[:credentials] = {user: user, password: password}
         end
       end
       parser.parse!(argv)

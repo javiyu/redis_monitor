@@ -31,5 +31,12 @@ describe CommandLineParser do
       args = ['--not-editable']
       CommandLineParser.parse(args)[:permissions][:remove_content].should eq(false)
     end
+
+    it 'should read credentials options' do
+      args = ['--credentials', 'user:password']
+      credentials = CommandLineParser.parse(args)[:credentials]
+      credentials[:user].should eq('user')
+      credentials[:password].should eq('password')
+    end
   end
 end

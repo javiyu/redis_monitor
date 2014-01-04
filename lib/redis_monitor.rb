@@ -1,6 +1,7 @@
 require 'server/command_line_parser'
 require 'server/server'
-require 'modules/authorization'
+require 'modules/security/authorization'
+require 'modules/security/authentication'
 
 module RedisMonitor
   def self.run
@@ -8,6 +9,8 @@ module RedisMonitor
     Backend.config(arguments)
     Server.config(arguments)
     Authorization.config(arguments[:permissions])
+    Authentication.config(Server, arguments[:credentials])
+
     Server.run!
   end
 end

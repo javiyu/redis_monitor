@@ -17,11 +17,13 @@ Or install it yourself as:
 
 ## Usage
 
-    $ redis_monitor --http-port http_port --host host --port port
-
-Flags --editable or --not-editable can be use to indicate if the user should be able to edit the database content.
+    $ redis_monitor --http-port http_port --host redis-host --port redis-port
 
 Then browse http://localhost:http_port
+
+--editable or --not-editable can be use to indicate if the user should be able to edit the database content.
+--credentials user:password if only users with credentials can access the application.
+
 
 For more information about the parameters:
 
