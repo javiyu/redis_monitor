@@ -6,7 +6,7 @@ module RedisMonitor
 
       SECTION = 'info'
 
-      def index(params={})
+      def index
         haml 'info/info'.to_sym, layout: main_layout, locals: {info: Backend.info, section: SECTION}
       end
     end

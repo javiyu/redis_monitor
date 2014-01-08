@@ -7,7 +7,7 @@ module RedisMonitor
   class Backend
     extend SingleForwardable
 
-    def_delegators :redis, :get, :set, :info, :keys, :dbsize, :monitor
+    def_delegators :redis, :get, :set, :info, :keys, :dbsize, :select
 
     def self.config(arguments)
       @@host = arguments[:redis_host]
@@ -34,8 +34,16 @@ module RedisMonitor
       keys(key).map{|found| {key: found, value: get(found)} }
     end
 
+    def self.change_database(*args)
+      select(*args)
+    end
+
     def self.del(key)
       redis.del(key) if Authorization.authorized_for?(:remove_content)
+    end
+
+    def self.databases
+      info.keys.map{|d| d.match(/db(\d+)/);$1}.compact
     end
   end
 end

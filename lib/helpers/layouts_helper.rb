@@ -24,10 +24,6 @@ module RedisMonitor
           end
         end
       end
-
-      def authorized_for?(action)
-        Authorization.authorized_for?(action)
-      end
     end
   end
 end

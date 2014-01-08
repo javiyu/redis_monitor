@@ -7,7 +7,7 @@
         Key
       %th
         Value
-      - if authorized_for?(:remove_content)
+      - if RedisMonitor::Authorization.authorized_for?(:remove_content)
         %th
           Actions
 
@@ -18,7 +18,7 @@
           = result[:key]
         %td
           = result[:value]
-        - if authorized_for?(:remove_content)
+        - if RedisMonitor::Authorization.authorized_for?(:remove_content)
           %td
             %form{action: '/content/delete', method: 'post'}
               %input{type: 'hidden', name: 'key', value: result[:key]}

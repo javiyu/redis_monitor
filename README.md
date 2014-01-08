@@ -21,7 +21,7 @@ Or install it yourself as:
 
 Then browse http://localhost:http_port
 
---editable or --not-editable can be use to indicate if the user should be able to edit the database content.  
+--editable or --not-editable can be use to indicate if the user should be able to edit the database content.
 --credentials user:password if only users with credentials can access the application.
 
 

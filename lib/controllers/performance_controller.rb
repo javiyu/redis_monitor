@@ -2,7 +2,6 @@
 module RedisMonitor
   module Controllers
     class PerformanceController < BaseController
-      include RedisMonitor::Helpers::LayoutsHelper
 
       SECTION = 'performance'
 

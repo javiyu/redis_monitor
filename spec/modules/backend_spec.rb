@@ -51,4 +51,13 @@ describe Backend do
       Backend.del('key')
     end
   end
+
+  describe 'databases' do
+    it 'should retrieve databases' do
+      info_keys = {db0: '', db1: '', example: ''}
+      Backend.stub(:info){ info_keys }
+      Backend.databases.should include('0')
+      Backend.databases.should include('1')
+    end
+  end
 end

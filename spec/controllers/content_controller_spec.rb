@@ -2,8 +2,13 @@ require 'spec_helper'
 
 describe ContentController do
   let(:context){ double() }
-  let(:controller){ ContentController.new(context: context) }
+  let(:params){ {key: ''} }
+  let(:controller){ ContentController.new(context: context, params: params) }
   let(:search_results){ double(paginate: []) }
+
+  before :each do
+    controller.stub(:redirect_back)
+  end
 
   describe 'index action' do
     it 'should render index template' do
@@ -21,20 +26,16 @@ describe ContentController do
   end
 
   describe 'delete action' do
-    before :each do
-      Backend.stub(:del)
-    end
-
-    it 'should redirect to the referer if exists' do
-      controller.stub(:http_referer){ '/referer' }
-      context.should_receive(:redirect).with('/referer')
+    it 'should call del on Backend' do
+      Backend.should_receive(:del)
       controller.delete
     end
+  end
 
-    it 'should redirect to search page if referer does not exists' do
-      controller.stub(:http_referer){ nil }
-      context.should_receive(:redirect).with('/content/search')
-      controller.delete
+  describe 'change_database' do
+    it 'should call set_database' do
+      controller.should_receive(:set_database)
+      controller.change_database
     end
   end
 end

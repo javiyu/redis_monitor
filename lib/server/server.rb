@@ -10,10 +10,12 @@ module RedisMonitor
     include RedisMonitor::Router
     include RedisMonitor::Helpers::LayoutsHelper
     include WillPaginate::Sinatra::Helpers
-    include PaginationHelper
+    include RedisMonitor::Helpers::PaginationHelper
+    include RedisMonitor::Helpers::DatabaseHelper
 
     set :public_folder, File.dirname(__FILE__) + '/../static'
     set :views, File.dirname(__FILE__) + '/../views'
+    enable :sessions
 
     def self.config(arguments)
       set :server, arguments[:http_server]
