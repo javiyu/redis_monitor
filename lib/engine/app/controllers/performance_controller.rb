@@ -3,6 +3,6 @@ class PerformanceController < ApplicationController
   end
 
   def check
-    @stats = Backend.performance_stats
+    @stats = PerformanceStats.new(Backend).result
   end
 end

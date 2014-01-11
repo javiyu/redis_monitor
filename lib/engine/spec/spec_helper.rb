@@ -41,7 +41,11 @@ RSpec.configure do |config|
   config.order = "random"
 end
 
-Backend.config(redis_host: 'localhost', redis_port: 6379)
-Authorization.config({})
-Authentication.config(nil)
+Backend.setup do |config|
+  config.host = 'localhost'
+  config.port = 6379
+end
+
+Authorization.setup({})
+Authentication.setup(nil)
 

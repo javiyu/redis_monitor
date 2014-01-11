@@ -36,7 +36,7 @@ class PerformanceStats < Struct.new(:backend)
     time.real / CREATE_AND_DELETE_ACCESS_TIMES
   end
 
-  def results
+  def result
     { average_access: format_result_in_ms(average_access),
       average_write: format_result_in_ms(average_write),
       average_create_and_delete: format_result_in_ms(average_create_and_delete)}

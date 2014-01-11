@@ -6,27 +6,23 @@ class ContentController < ApplicationController
   end
 
   def search
-    @results = Backend.search(params[:key]).paginate(:page => params[:page], :per_page => 20)
+    results = SearchKey.new(Backend, params[:key]).result
+    @results = results.paginate(:page => params[:page], :per_page => 20)
   end
 
   def delete
-    Backend.remove(params[:key])
+    RemoveKey.new(Backend, params[:key]).execute
     redirect_to :back
   end
 
   def change_database
-    set_database(params[:database])
+    ChangeDatabase.new(Backend, params[:database]).execute
     redirect_to :back
   end
 
   private
   def load_section
     @section = 'content'
-  end
-
-  def set_database(database)
-    session[:database] = database
-    Backend.change_database(database)
   end
 end
 

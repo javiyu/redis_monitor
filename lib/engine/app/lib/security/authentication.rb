@@ -1,14 +1,11 @@
-module Authentication
+class Authentication
+  cattr_accessor :credentials
 
-  def self.config(credentials)
+  def self.setup(credentials)
     @@credentials = credentials
   end
 
   def self.authentication_required?
     !!credentials
-  end
-
-  def self.credentials
-    @@credentials
   end
 end

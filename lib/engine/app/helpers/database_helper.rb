@@ -1,10 +1,11 @@
 module DatabaseHelper
   def current_database
-    session[:database].to_i
+    Backend.current_database.to_i
   end
 
   def databases
-    Backend.databases.each do |database|
+    dbs = DatabaseList.new(Backend).result
+    dbs.each do |database|
       database_option(database)
     end
   end
