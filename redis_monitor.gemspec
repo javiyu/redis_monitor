@@ -21,7 +21,13 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'redis', '~> 3.0'
   spec.add_runtime_dependency 'rails', '~> 4.0'
-  spec.add_runtime_dependency 'sqlite3'
+
+  if defined?(JRUBY_VERSION)
+    spec.add_runtime_dependency 'activerecord-jdbcsqlite3-adapter'
+  else
+    spec.add_runtime_dependency 'sqlite3'
+  end
+
   spec.add_runtime_dependency 'jquery-rails'
   spec.add_runtime_dependency 'haml', '~> 4.0'
   spec.add_runtime_dependency 'twitter-bootstrap-rails'
