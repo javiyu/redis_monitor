@@ -14,5 +14,3 @@ class Authorization
     !!permissions[action]
   end
 end
-
-Authorization.config

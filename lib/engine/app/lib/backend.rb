@@ -43,5 +43,3 @@ class Backend
     info.keys.map{|d| d.match(/db(\d+)/);$1}.compact
   end
 end
-
-Backend.config(redis_host: 'localhost', redis_port: 6379)

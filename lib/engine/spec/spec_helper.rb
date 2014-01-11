@@ -40,3 +40,8 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+Backend.config(redis_host: 'localhost', redis_port: 6379)
+Authorization.config({})
+Authentication.config(nil)
+
