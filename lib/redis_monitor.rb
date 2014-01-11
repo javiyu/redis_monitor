@@ -1,10 +1,7 @@
-require 'server/command_line_parser'
-require 'server/server'
-require 'modules/security/authorization'
-require 'modules/security/authentication'
+#require 'server/command_line_parser'
 
-#module RedisMonitor
-#  def self.run
+module RedisMonitor
+  def self.run
 #    arguments = CommandLineParser.parse(ARGV.dup)
 #    Backend.config(arguments)
 #    Server.config(arguments)
@@ -12,5 +9,5 @@ require 'modules/security/authentication'
 #    Authentication.config(Server, arguments[:credentials])
 #
 #    Server.run!
-#  end
-#end
+  end
+end
