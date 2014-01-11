@@ -28,5 +28,7 @@ module Engine
     # Disable the asset pipeline.
     config.autoload_paths += Dir["#{config.root}/app/lib/**/"]
     config.assets.enabled = false
+
+    REDIS_MONITOR_OPTS = Marshal.load(Base64.decode64(ENV['REDIS_MONITOR_OPTS']))
   end
 end
