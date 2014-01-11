@@ -39,4 +39,4 @@ For more information about the parameters:
 
 Please write meaningful test, if you need to execute them:
 
-    $ rspec spec
+    $ rake spec

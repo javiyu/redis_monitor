@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative '../../spec_helper'
 
 describe Authentication do
   let(:server){ double(class_eval: nil, use: nil) }

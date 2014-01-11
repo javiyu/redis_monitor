@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative '../spec_helper'
 
 describe Backend do
   let(:redis){ double(del: '') }
@@ -42,13 +42,13 @@ describe Backend do
     it 'should not delete content if not allowed' do
       Authorization.stub(:authorized_for?).with(:remove_content){ false }
       redis.should_receive(:del).never
-      Backend.del('key')
+      Backend.remove('key')
     end
 
     it 'should remove content if allowed' do
       Authorization.stub(:authorized_for?).with(:remove_content){ true }
       redis.should_receive(:del)
-      Backend.del('key')
+      Backend.remove('key')
     end
   end
 

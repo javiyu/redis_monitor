@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative '../spec_helper'
 
 describe PerformanceStats do
   let(:backend){ double(get: nil, set: nil, del: nil) }

@@ -10,7 +10,7 @@ class ContentController < ApplicationController
   end
 
   def delete
-    Backend.del(params[:key])
+    Backend.remove(params[:key])
     redirect_to :back
   end
 

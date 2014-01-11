@@ -4,9 +4,6 @@ require 'command_line_parser'
 module RedisMonitor
   def self.parse_arguments
     CommandLineParser.parse(ARGV.dup)
-#    Backend.config(arguments)
-#    Authorization.config(arguments[:permissions])
-#    Authentication.config(Server, arguments[:credentials])
   end
 
   def self.store_arguments(args)

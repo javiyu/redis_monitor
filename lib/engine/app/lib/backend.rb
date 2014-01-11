@@ -35,7 +35,7 @@ class Backend
     select(*args)
   end
 
-  def self.del(key)
+  def self.remove(key)
     redis.del(key) if Authorization.authorized_for?(:remove_content)
   end
 
