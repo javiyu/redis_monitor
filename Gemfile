@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in redis_monitor.gemspec
 gemspec
+
+eval(File.read('lib/engine/Gemfile'))

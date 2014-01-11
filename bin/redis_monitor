@@ -1,4 +1,3 @@
 #!/usr/bin/env ruby
-
-require 'redis_monitor'
-RedisMonitor.run
+system('lib/engine/bin/rails', 's')
+#system('lib/engine/bin/rails', 's', '-e', 'production')

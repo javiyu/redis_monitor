@@ -1,0 +1,23 @@
+%html
+  %head
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
+    = stylesheet_link_tag 'bootstrap.min', media: 'all'
+    = stylesheet_link_tag 'bootstrap-select.min', media: 'all'
+    = stylesheet_link_tag 'custom', media: 'all'
+
+    = javascript_include_tag 'jquery-2.0.3.min'
+    = javascript_include_tag 'bootstrap.min'
+    = javascript_include_tag 'bootstrap-select.min'
+    = javascript_include_tag 'app'
+
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %a.navbar-brand{href: '/'}
+            Redis Monitor
+        .collapse.navbar-collapse
+          = content_menu(@section)
+
+    .container
+      = yield

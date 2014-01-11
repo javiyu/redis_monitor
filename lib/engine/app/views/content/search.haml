@@ -1,0 +1,28 @@
+= render 'search_form', locals: {search_term: params[:key]}
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        Key
+      %th
+        Value
+      - if Authorization.authorized_for?(:remove_content)
+        %th
+          Actions
+
+  %tbody
+    - @results.each do |result|
+      %tr
+        %td
+          = result[:key]
+        %td
+          = result[:value]
+        - if Authorization.authorized_for?(:remove_content)
+          %td
+            %form{action: '/content/delete', method: 'post'}
+              %input{type: 'hidden', name: 'key', value: result[:key]}
+              %button.btn.btn-danger
+                Delete
+
+= bootstrap_paginate @results
