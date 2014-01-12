@@ -12,10 +12,19 @@ module ApplicationHelper
   def content_menu(selected_section)
     capture_haml do
       haml_tag :ul, class: 'nav navbar-nav' do
-        section(name: 'info', title: 'Info', url: '/info', selected_section: selected_section)
-        section(name: 'content', title: 'Content', url: '/content', selected_section: selected_section)
-        section(name: 'performance', title: 'Performance', url: '/performance', selected_section: selected_section)
+        section(name: 'info', title: 'Info', url: info_index_path, selected_section: selected_section)
+        section(name: 'content', title: 'Content', url: content_index_path, selected_section: selected_section)
+        section(name: 'performance', title: 'Performance', url: performance_index_path, selected_section: selected_section)
+        section(name: 'tasks', title: 'Tasks', url: tasks_path, selected_section: selected_section)
       end
     end
+  end
+
+  def remove_class
+    'btn btn-danger'
+  end
+
+  def edit_class
+    'btn btn-primary'
   end
 end

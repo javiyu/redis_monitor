@@ -3,11 +3,11 @@
 = choose_database_select(@databases)
 %hr
 
-%form{action: '/content/search', method: 'get', style: 'margin-top: 5px'}
+%form{action: search_content_index_path, method: 'get', style: 'margin-top: 5px'}
   .form-group
     %label{for: 'input_key'}
       Introduce search terms (wildcards allowed)
     %input.form-control{type: 'text', id: 'input_key', name: 'key', placeholder: 'Search terms', value: search_term}
   .form-group
-    %button.btn.btn-default{type: 'submit'}
+    %button{type: 'submit', class: remove_class}
       Search

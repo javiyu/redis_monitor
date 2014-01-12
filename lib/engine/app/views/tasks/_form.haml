@@ -1,0 +1,22 @@
+= form_for @task do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :type
+    = f.text_field :type, class: 'form-control'
+
+  .form-group
+    = f.label :value
+    = f.text_field :value, class: 'form-control'
+
+  .form-group
+    = f.label :every, 'Every (seconds)'
+    = f.number_field :every, class: 'form-control'
+
+  .form-group
+    %button.btn.btn-default{type: 'submit', style: 'margin-right: 10px'}
+      Save
+    %a{href: tasks_path}
+      Cancel

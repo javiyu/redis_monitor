@@ -1,0 +1,19 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        Name
+      %th
+        Type
+      %th
+        Value
+      %th
+        Every (seconds)
+      %th
+        Actions
+
+  %tbody
+    = render @tasks
+
+%a.btn.btn-default{href: new_task_path}
+  New task

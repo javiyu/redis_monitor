@@ -1,0 +1,12 @@
+%tr
+  %td
+    = task.name
+  %td
+    = task.type
+  %td
+    = task.value
+  %td
+    = task.every
+  %td
+    = link_to 'Edit', edit_task_path(task), class: edit_class
+    = link_to 'Delete', task_path(task), class: remove_class, :confirm => 'Are you sure?', :method => :delete
