@@ -1,8 +1,12 @@
 require_relative '../spec_helper'
 
 describe ContentController do
+  let(:backend){ double() }
   before :each do
     request.env['HTTP_REFERER'] = '/'
+    controller.stub(:backend){ backend }
+    controller.stub(:load_database_list)
+    controller.stub(:load_current_database)
   end
 
   describe 'search action' do
