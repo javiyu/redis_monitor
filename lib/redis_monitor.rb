@@ -14,7 +14,6 @@ module RedisMonitor
     args = parse_arguments
     store_arguments(args)
 
-    system('lib/engine/bin/rails', 's', '-p', args[:http_port].to_s)
-    #system('lib/engine/bin/rails', 's', '-e', 'production')
+    system('lib/engine/bin/rails', 's', '-p', args[:http_port].to_s, '-e', 'production')
   end
 end
