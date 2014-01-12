@@ -1,5 +1,5 @@
 if defined?(REDIS_MONITOR_OPTS)
-  Backend.setup do |config|
+  BackendConnection.setup do |config|
     config.host = REDIS_MONITOR_OPTS[:redis_host]
     config.port = REDIS_MONITOR_OPTS[:redis_port]
   end

@@ -1,22 +1,17 @@
 module DatabaseHelper
-  def current_database
-    Backend.current_database.to_i
-  end
-
-  def databases
-    dbs = DatabaseList.new(Backend).result
+  def databases(dbs)
     dbs.each do |database|
       database_option(database)
     end
   end
 
   def database_option(database)
-    haml_tag :option, {selected: (database.to_i == current_database.to_i)} do
+    haml_tag :option, {selected: (database.to_i == @current_database.to_i)} do
       haml_concat database
     end
   end
 
-  def choose_database_select
+  def choose_database_select(dbs)
     capture_haml do
       haml_tag :form, action: '/content/change_database', method: 'post' do
         haml_tag :div, class: 'form-group' do
@@ -25,7 +20,7 @@ module DatabaseHelper
           end
 
           haml_tag :select, id: 'database_select', name: 'database', class: 'selectpicker form-control', data: {style: 'btn-info'} do
-            databases
+            databases(dbs)
           end
         end
       end

@@ -1,6 +1,6 @@
-class ChangeDatabase < Struct.new(:backend, :database)
+class ChangeDatabase < Struct.new(:backend, :session, :database)
   def execute
-    backend.select(database)
     backend.current_database = database
+    session[:database] = database
   end
 end

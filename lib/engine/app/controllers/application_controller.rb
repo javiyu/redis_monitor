@@ -7,4 +7,7 @@ class ApplicationController < ActionController::Base
     http_basic_authenticate_with name: Authentication.credentials[:user], password: Authentication.credentials[:password]
   end
 
+  def backend
+    @backend ||= BackendConnection.build(current_database: session[:database])
+  end
 end

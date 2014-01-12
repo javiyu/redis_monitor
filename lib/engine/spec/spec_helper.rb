@@ -41,7 +41,7 @@ RSpec.configure do |config|
   config.order = "random"
 end
 
-Backend.setup do |config|
+BackendConnection.setup do |config|
   config.host = 'localhost'
   config.port = 6379
 end

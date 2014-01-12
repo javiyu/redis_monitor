@@ -1,17 +1,19 @@
 require 'redis'
-require 'forwardable'
 
 class Backend
-  extend SingleForwardable
-  cattr_accessor :host, :port, :current_database
+  attr_accessor :host, :port, :current_database
 
-  def_delegators :redis, :get, :set, :info, :keys, :select, :del
+  delegate :get, :set, :info, :keys, :select, :del, :to => :redis
 
-  def self.setup
-    yield(self) if block_given?
+  def initialize(opts = {})
+    @host = opts[:host]
+    @port = opts[:port]
+    @current_database = opts[:current_database]
   end
 
-  def self.redis
-    @@redis ||= Redis.new(host: host, port: port)
+  def redis
+    @redis ||= Redis.new(host: host, port: port)
+    @redis.select(current_database)
+    @redis
   end
 end
