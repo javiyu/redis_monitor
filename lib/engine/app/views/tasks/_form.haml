@@ -1,11 +1,11 @@
-= form_for @task do |f|
+= form_for @task.becomes(Task) do |f|
   .form-group
     = f.label :name
     = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.label :type
-    = f.text_field :type, class: 'form-control'
+    = f.label :type, 'Action'
+    = f.select(:type, options_for_select(Task.selectable_actions), {}, {class: 'form-control'})
 
   .form-group
     = f.label :value
@@ -14,6 +14,12 @@
   .form-group
     = f.label :every, 'Every (seconds)'
     = f.number_field :every, class: 'form-control'
+
+  .form_group
+    .checkbox
+      = f.label :status, {style: 'font-weight:bold'} do
+        = f.check_box :status, {}, Task::ACTIVE, Task::INACTIVE
+        = 'Active'
 
   .form-group
     %button.btn.btn-default{type: 'submit', style: 'margin-right: 10px'}

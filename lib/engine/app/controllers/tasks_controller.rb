@@ -19,6 +19,12 @@ class TasksController < ApplicationController
     redirect_to action: :index
   end
 
+  def update
+    task = Task.find(params[:id])
+    task.update_attributes(task_params)
+    redirect_to action: :index
+  end
+
   def destroy
     task = Task.find(params[:id])
     task.destroy
@@ -31,6 +37,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :type, :value, :every)
+    params.require(:task).permit(:name, :type, :value, :every, :status)
   end
 end
