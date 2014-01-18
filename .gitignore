@@ -18,3 +18,5 @@ tmp
 .rvmrc
 .idea
 *.rdb
+.ruby-version
+.ruby-gemset
