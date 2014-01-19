@@ -3,15 +3,7 @@
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'redis_monitor'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Execute:
 
     $ gem install redis_monitor
 
@@ -28,6 +20,12 @@ Then browse http://localhost:http_port
 For more information about the parameters:
 
     $ redis_monitor --help
+
+You can define tasks in 'Task' tab and they will be running in background. There is two type of task availables at the moment:
+- Watch key, it will watch key introduced in 'trigger' field and it will create notifications if the value change.
+
+- Watch query, it will watch the query introduced in 'trigger' field and in the result of the query changes it will create a notification.
+Be careful with this one, don't watch queries too generic because it can affect to the performance of your database.
 
 ## Contributing
 
