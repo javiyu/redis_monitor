@@ -14,8 +14,9 @@ module ApplicationHelper
       haml_tag :ul, class: 'nav navbar-nav' do
         section(name: 'info', title: 'Info', url: info_index_path, selected_section: selected_section)
         section(name: 'content', title: 'Content', url: content_index_path, selected_section: selected_section)
-        section(name: 'performance', title: 'Performance', url: performance_index_path, selected_section: selected_section)
         section(name: 'tasks', title: 'Tasks', url: tasks_path, selected_section: selected_section)
+        section(name: 'notifications', title: 'Notifications', url: notifications_path, selected_section: selected_section)
+        section(name: 'performance', title: 'Performance', url: performance_index_path, selected_section: selected_section)
       end
     end
   end

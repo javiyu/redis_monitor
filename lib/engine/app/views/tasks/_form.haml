@@ -5,11 +5,15 @@
 
   .form-group
     = f.label :type, 'Action'
-    = f.select(:type, options_for_select(Task.selectable_actions), {}, {class: 'form-control'})
+    = f.select(:type, options_for_select(Task.selectable_actions, @task.type), {}, {class: 'form-control'})
 
   .form-group
-    = f.label :value
-    = f.text_field :value, class: 'form-control'
+    = f.label :trigger
+    = f.text_field :trigger, class: 'form-control'
+
+  .form-group
+    = f.label :database, 'Database'
+    = f.number_field :database, class: 'form-control'
 
   .form-group
     = f.label :every, 'Every (seconds)'

@@ -8,7 +8,7 @@ class ContentController < ApplicationController
   end
 
   def search
-    results = SearchKey.new(backend, params[:key]).result
+    results = SearchKeys.new(backend, params[:key]).result
     @results = results.paginate(:page => params[:page], :per_page => 20)
   end
 

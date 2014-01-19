@@ -1,9 +1,9 @@
 require_relative '../../spec_helper'
 
-describe SearchKey do
+describe SearchKeys do
   let(:backend){ double() }
   let(:key){ 'key' }
-  let(:command){ SearchKey.new(backend, key) }
+  let(:command){ SearchKeys.new(backend, key) }
   let(:keys_found){ ['k1', 'k2', 'k3'] }
 
   describe 'result' do

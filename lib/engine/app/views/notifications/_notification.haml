@@ -1,0 +1,9 @@
+%tr
+  %td
+    = notification.reporter
+  %td
+    = notification.message
+  %td
+    = notification.when
+  %td
+    = link_to 'Delete', notification_path(notification), class: remove_class, :confirm => 'Are you sure?', :method => :delete

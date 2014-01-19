@@ -11,7 +11,7 @@ describe ContentController do
 
   describe 'search action' do
     it 'should search on backend' do
-      SearchKey.any_instance.should_receive(:result){ [] }
+      SearchKeys.any_instance.should_receive(:result){ [] }
       get :search
     end
   end

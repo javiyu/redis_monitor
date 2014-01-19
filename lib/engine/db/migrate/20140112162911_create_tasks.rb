@@ -3,8 +3,11 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.string :name
       t.string :type
-      t.string :value
+      t.string :trigger
+      t.integer :database, default: 0
       t.integer :every
+      t.string :status, default: ''
+      t.text :data
 
       t.timestamps
     end

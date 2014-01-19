@@ -33,6 +33,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'twitter-bootstrap-rails'
   spec.add_runtime_dependency 'will_paginate', '~> 3.0.5'
   spec.add_runtime_dependency 'will_paginate-bootstrap'
+  spec.add_runtime_dependency 'delayed_job_active_record'
+  spec.add_runtime_dependency 'daemons'
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake'
