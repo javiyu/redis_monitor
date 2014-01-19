@@ -14,12 +14,20 @@ module RedisMonitor
     'production'
   end
 
+  def self.base_folder
+    File.dirname(__FILE__)
+  end
+
+  def self.rakefile_path
+    "#{base_folder}/engine/Rakefile"
+  end
+
   def self.run
     args = parse_arguments
     store_arguments(args)
 
-    system('lib/engine/bin/rake', 'db:migrate', "RAILS_ENV=#{environment}")
-    system('lib/engine/bin/delayed_job', 'restart', "RAILS_ENV=#{environment}")
-    system('lib/engine/bin/rails', 's', '-p', args[:http_port].to_s, '-e', environment)
+    system("#{base_folder}/engine/bin/rake", '-f', rakefile_path, 'db:migrate', "RAILS_ENV=#{environment}")
+    system("#{base_folder}/engine/bin/delayed_job", 'restart', "RAILS_ENV=#{environment}")
+    system("#{base_folder}/engine/bin/rails", 's', '-p', args[:http_port].to_s, '-e', environment)
   end
 end
