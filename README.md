@@ -30,9 +30,13 @@ Be careful with this one, don't watch queries too generic because it can affect 
 ## Screenshots
 
 ![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/1.png)
+
 ![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/2.png)
+
 ![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/3.png)
+
 ![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/4.png)
+
 ![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/5.png)
 
 ## Contributing
