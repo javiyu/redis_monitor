@@ -27,6 +27,14 @@ You can define tasks in 'Task' tab and they will be running in background. There
 - Watch query, it will watch the query introduced in 'trigger' field and in the result of the query changes it will create a notification.
 Be careful with this one, don't watch queries too generic because it can affect to the performance of your database.
 
+## Screenshots
+
+![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/1.png)
+![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/2.png)
+![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/3.png)
+![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/4.png)
+![](https://dl.dropboxusercontent.com/u/434578/redis_monitor_images/5.png)
+
 ## Contributing
 
 1. Fork it
