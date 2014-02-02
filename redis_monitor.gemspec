@@ -30,7 +30,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'jquery-rails'
   spec.add_runtime_dependency 'haml', '~> 4.0'
-  spec.add_runtime_dependency 'twitter-bootstrap-rails'
   spec.add_runtime_dependency 'will_paginate', '~> 3.0.5'
   spec.add_runtime_dependency 'will_paginate-bootstrap'
   spec.add_runtime_dependency 'delayed_job_active_record'
