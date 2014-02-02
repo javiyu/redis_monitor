@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
   before_action :load_section
 
   def index
-    @notifications = Notification.all
+    @notifications = Notification.paginate(:page => params[:page], :per_page => 20)
   end
 
   def destroy
