@@ -28,4 +28,8 @@ module ApplicationHelper
   def edit_class
     'btn btn-primary'
   end
+
+  def redis_configuration_string
+    "#{backend.host}:#{backend.port}"
+  end
 end

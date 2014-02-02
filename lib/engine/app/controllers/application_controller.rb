@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  rescue_from Redis::CannotConnectError, :with => :redis_not_available
+
+  helper_method :backend
 
   if Authentication.authentication_required?
     http_basic_authenticate_with name: Authentication.credentials[:user], password: Authentication.credentials[:password]
@@ -9,5 +11,9 @@ class ApplicationController < ActionController::Base
 
   def backend
     @backend ||= BackendConnection.build(current_database: session[:database])
+  end
+
+  def redis_not_available
+    render 'layouts/redis_not_available'
   end
 end

@@ -1,5 +1,3 @@
-require 'redis'
-
 class Backend
   attr_accessor :host, :port, :current_database
 
