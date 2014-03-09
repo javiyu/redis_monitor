@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 20140118183403) do
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "notifications", force: true do |t|
     t.string   "reporter",   default: ""
-    t.text     "message",    default: ""
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

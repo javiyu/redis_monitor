@@ -24,8 +24,10 @@ Gem::Specification.new do |spec|
 
   if defined?(JRUBY_VERSION)
     spec.add_runtime_dependency 'activerecord-jdbcsqlite3-adapter'
+    spec.add_runtime_dependency 'activerecord-jdbcmysql-adapter'
   else
     spec.add_runtime_dependency 'sqlite3'
+    spec.add_runtime_dependency 'mysql2'
   end
 
   spec.add_runtime_dependency 'jquery-rails'
