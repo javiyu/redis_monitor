@@ -17,6 +17,7 @@ Then browse http://localhost:http_port
 --credentials user:password if only users with credentials can access the application.
 
 If no database config is specified a sqlite3 database will be created inside the gem. To define database configuration you can use --database-adapter, --database-host, --database-port, --database-name
+
 For example:
 
     $ redis_monitor --database-adapter mysql2 --database-name redis_monitor --database-host localhost --database-port 3306
